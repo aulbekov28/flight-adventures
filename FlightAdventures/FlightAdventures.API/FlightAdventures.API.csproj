@@ -3,6 +3,7 @@
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <RootNamespace>FlightAdventures.API</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -19,6 +20,10 @@
       <PackageReference Include="Microsoft.EntityFrameworkCore" />
     </ItemGroup>
 
+    <ItemGroup>
+        <InternalsVisibleTo Include="FlightAdventures.IntegrationTests" />
+    </ItemGroup>
+    
     <ItemGroup>
       <ProjectReference Include="..\FlightAdventures.Persistence\FlightAdventures.Persistence.csproj" />
     </ItemGroup>
