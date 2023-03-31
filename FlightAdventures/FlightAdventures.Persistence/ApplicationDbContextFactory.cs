@@ -9,7 +9,7 @@ public class ApplicationDbContextFactory : IDesignTimeDbContextFactory<FlightCon
     {
         var optionsBuilder = new DbContextOptionsBuilder<FlightContext>();
         // TODO read properly from configs
-        optionsBuilder.UseSqlServer("data source=localhost, 1433;initial catalog==MyFlights;user id=sa;password=Strong@Passw0rd;");
+        optionsBuilder.UseSqlServer("data source=localhost, 1433;initial catalog=MyFlights;user id=sa;password=Strong@Passw0rd;Encrypt=False");
 
         return new FlightContext(optionsBuilder.Options);    
     }
