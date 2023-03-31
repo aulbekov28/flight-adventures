@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightAdventures", "FlightAdventures\FlightAdventures.csproj", "{4648CC9E-7E07-4319-A061-2130DBE0A121}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{84D9D8B0-C917-42AB-9E21-DE28D87B04CE}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yaml = docker-compose.yaml
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9D4C9E66-E842-4D52-9071-0A32E5375723}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B8E3AF09-00A0-41D3-A8A1-7F6914B2E21B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightAdventures.Application", "FlightAdventures.Application\FlightAdventures.Application.csproj", "{21EFF684-02DD-40A9-89DE-0190E758F20B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightAdventures.Domain", "FlightAdventures.Domain\FlightAdventures.Domain.csproj", "{0908FF80-808D-4B87-B2CF-70C98BBA3B45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightAdventures.Infrastructure", "FlightAdventures.Infrastructure\FlightAdventures.Infrastructure.csproj", "{6E3DB037-EF80-4F00-8F4D-2D6DBD557735}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightAdventures.Persistence", "FlightAdventures.Persistence\FlightAdventures.Persistence.csproj", "{58CE91E3-A4CA-46E9-AE5D-ABC83F740BA5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4648CC9E-7E07-4319-A061-2130DBE0A121}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4648CC9E-7E07-4319-A061-2130DBE0A121}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4648CC9E-7E07-4319-A061-2130DBE0A121}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4648CC9E-7E07-4319-A061-2130DBE0A121}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21EFF684-02DD-40A9-89DE-0190E758F20B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21EFF684-02DD-40A9-89DE-0190E758F20B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21EFF684-02DD-40A9-89DE-0190E758F20B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21EFF684-02DD-40A9-89DE-0190E758F20B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0908FF80-808D-4B87-B2CF-70C98BBA3B45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0908FF80-808D-4B87-B2CF-70C98BBA3B45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0908FF80-808D-4B87-B2CF-70C98BBA3B45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0908FF80-808D-4B87-B2CF-70C98BBA3B45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E3DB037-EF80-4F00-8F4D-2D6DBD557735}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E3DB037-EF80-4F00-8F4D-2D6DBD557735}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E3DB037-EF80-4F00-8F4D-2D6DBD557735}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E3DB037-EF80-4F00-8F4D-2D6DBD557735}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58CE91E3-A4CA-46E9-AE5D-ABC83F740BA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58CE91E3-A4CA-46E9-AE5D-ABC83F740BA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58CE91E3-A4CA-46E9-AE5D-ABC83F740BA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58CE91E3-A4CA-46E9-AE5D-ABC83F740BA5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{21EFF684-02DD-40A9-89DE-0190E758F20B} = {9D4C9E66-E842-4D52-9071-0A32E5375723}
+		{0908FF80-808D-4B87-B2CF-70C98BBA3B45} = {9D4C9E66-E842-4D52-9071-0A32E5375723}
+		{6E3DB037-EF80-4F00-8F4D-2D6DBD557735} = {9D4C9E66-E842-4D52-9071-0A32E5375723}
+		{58CE91E3-A4CA-46E9-AE5D-ABC83F740BA5} = {9D4C9E66-E842-4D52-9071-0A32E5375723}
+	EndGlobalSection
+EndGlobal
