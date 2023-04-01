@@ -10,8 +10,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Command Handlers" />
-      <Folder Include="Commands" />
+      <ProjectReference Include="..\FlightAdventures.Domain\FlightAdventures.Domain.csproj" />
     </ItemGroup>
 
 </Project>
