@@ -13,10 +13,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Requests\Validators" />
-    </ItemGroup>
-
-    <ItemGroup>
       <PackageReference Include="MediatR" />
       <PackageReference Include="MediatR.Extensions.Microsoft.AspNetCore" />
       <PackageReference Include="Microsoft.EntityFrameworkCore" />

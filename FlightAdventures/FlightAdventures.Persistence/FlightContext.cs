@@ -1,9 +1,10 @@
-﻿using FlightAdventures.Domain.Models;
+﻿using FlightAdventures.Application.Abstractions;
+using FlightAdventures.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace FlightAdventures.Persistence;
 
-public class FlightContext : DbContext
+public class FlightContext : DbContext, IFlightDbContext
 {
     public FlightContext(DbContextOptions<FlightContext> options)
         : base(options)

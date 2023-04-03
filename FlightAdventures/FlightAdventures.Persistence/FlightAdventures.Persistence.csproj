@@ -16,6 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\FlightAdventures.Application\FlightAdventures.Application.csproj" />
       <ProjectReference Include="..\FlightAdventures.Domain\FlightAdventures.Domain.csproj" />
     </ItemGroup>
 
