@@ -1,3 +1,4 @@
+using FlightAdventures.Application.Queries;
 using FlightAdventures.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseSerilog((hostContext, services, configuration) => {
     configuration.WriteTo.Console();
 });
+
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetFlightsQuery).Assembly));
 
 builder.Services
     .AddDbContext<FlightContext>(options =>

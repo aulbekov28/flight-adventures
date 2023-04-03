@@ -2,9 +2,10 @@
 using System.Threading.Tasks;
 using FlightAdventures.Requests.Auth;
 using FlightAdventures.Responses;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FlightAdventures.Controllers;
+namespace FlightAdventures.API.Controllers;
 
 [Controller]
 [Route("auth")]
