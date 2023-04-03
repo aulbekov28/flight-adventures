@@ -9,4 +9,13 @@
       <Folder Include="Services" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Authorization" />
+      <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\FlightAdventures.Application\FlightAdventures.Application.csproj" />
+    </ItemGroup>
+
 </Project>

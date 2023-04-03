@@ -11,7 +11,7 @@ public class GetFlightsQuery : IRequest<ICollection<Flight>>
     public string Destination { get; set; }
 }
 
-public class GetFlightsHandler: IRequestHandler<GetFlightsQuery, ICollection<Flight>>
+public class GetFlightsHandler : IRequestHandler<GetFlightsQuery, ICollection<Flight>>
 {
     private readonly IFlightDbContext _context;
 
