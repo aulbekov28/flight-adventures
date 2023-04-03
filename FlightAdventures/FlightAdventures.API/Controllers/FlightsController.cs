@@ -1,5 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
+using FlightAdventures.API.Models.FlightDto;
 using FlightAdventures.Application.Commands;
+using FlightAdventures.Application.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -9,13 +12,21 @@ namespace FlightAdventures.API.Controllers;
 
 public class FlightsController : ControllerBase
 {
-    private readonly ISender _mediatr;
+    private readonly ISender  _mediatr;
 
-    public FlightsController(ISender mediatr)
+    public FlightsController(ISender  mediatr)
     {
         _mediatr = mediatr;
     }
-
+    
+    [Authorize]
+    [HttpPost]
+    public async Task<IActionResult> Get(GetFlightsQuery query)
+    {
+        var flight = await _mediatr.Send(query);
+        return Ok(flight.Select(FlightDto.FromEntity));
+    }
+    
     [Authorize]
     [HttpPost]
     public async Task<IActionResult> Create(AddFlightCommand command)

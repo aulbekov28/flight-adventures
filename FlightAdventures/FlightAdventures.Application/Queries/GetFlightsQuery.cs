@@ -1,5 +1,7 @@
-﻿using FlightAdventures.Domain.Models;
+﻿using FlightAdventures.Application.Abstractions;
+using FlightAdventures.Domain.Models;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace FlightAdventures.Application.Queries;
 
@@ -11,12 +13,19 @@ public class GetFlightsQuery : IRequest<ICollection<Flight>>
 
 public class GetFlightsHandler: IRequestHandler<GetFlightsQuery, ICollection<Flight>>
 {
-    public GetFlightsHandler()
+    private readonly IFlightDbContext _context;
+
+    public GetFlightsHandler(IFlightDbContext context)
     {
+        _context = context;
     }
 
-    public Task<ICollection<Flight>> Handle(GetFlightsQuery request, CancellationToken cancellationToken)
+    public async Task<ICollection<Flight>> Handle(GetFlightsQuery request, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        return await _context.Flights
+            .AsNoTracking()
+            .Where(x => x.Origin == request.Origin ||
+                        (request.Destination != null && x.Destination == request.Destination))
+            .ToArrayAsync(cancellationToken);
     }
 }
