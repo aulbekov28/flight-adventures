@@ -1,22 +1,22 @@
 ﻿using System.Text.Json;
 using FlightAdventures.Domain.Models;
 using MediatR;
+using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Logging;
-using StackExchange.Redis;
 
 namespace FlightAdventures.Application.Commands.AddFlight;
 
 public class AddFlightCacheBehavior : IPipelineBehavior<AddFlightCommand, Flight>
 {
     private readonly ILogger<AddFlightCacheBehavior> _logger;
-    private readonly IConnectionMultiplexer _redis;
+    private readonly IDistributedCache _cahche;
 
     public AddFlightCacheBehavior(
         ILogger<AddFlightCacheBehavior> logger,
-        IConnectionMultiplexer redis)
+        IDistributedCache cahche)
     {
         _logger = logger;
-        _redis = redis;
+        _cahche = cahche;
     }
 
     public async Task<Flight> Handle(AddFlightCommand request, RequestHandlerDelegate<Flight> next, CancellationToken cancellationToken)
@@ -27,14 +27,13 @@ public class AddFlightCacheBehavior : IPipelineBehavior<AddFlightCommand, Flight
         
         var cacheKey = $"{request.Origin}-{request.Destination}";
         
-        var database = _redis.GetDatabase();
-        var cachedValue = await database.StringGetAsync(cacheKey);
-        if (!cachedValue.IsNull)
+        var cachedValue = await _cahche.GetStringAsync(cacheKey, cancellationToken);
+        if (!string.IsNullOrEmpty(cachedValue))
         {
             // TODO probably incorrect - reconsider data model in Redis
             var flights = JsonSerializer.Deserialize<ICollection<Flight>>(cachedValue);
             flights.Add(newFlight);
-            await database.StringSetAsync(cacheKey, JsonSerializer.Serialize(flights), TimeSpan.FromMinutes(10));
+            await _cahche.SetStringAsync(cacheKey, JsonSerializer.Serialize(flights), cancellationToken);
         }
         
         _logger.LogInformation("Handled GetFlightsCacheBehavior");

@@ -13,9 +13,11 @@
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="FluentValidation.DependencyInjectionExtensions" />
       <PackageReference Include="MediatR" />
       <PackageReference Include="Microsoft.AspNetCore.ApiAuthorization.IdentityServer" />
       <PackageReference Include="Microsoft.EntityFrameworkCore" />
+      <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" />
       <PackageReference Include="Serilog" />
       <PackageReference Include="Serilog.Extensions.Hosting" />
       <PackageReference Include="Serilog.Sinks.Console" />
@@ -29,10 +31,6 @@
       <ProjectReference Include="..\src\FlightAdventures.Application\FlightAdventures.Application.csproj" />
       <ProjectReference Include="..\src\FlightAdventures.Infrastructure\FlightAdventures.Infrastructure.csproj" />
       <ProjectReference Include="..\src\FlightAdventures.Persistence\FlightAdventures.Persistence.csproj" />
-    </ItemGroup>
-    
-    <ItemGroup>
-      <Folder Include="Requests" />
     </ItemGroup>
 
 </Project>

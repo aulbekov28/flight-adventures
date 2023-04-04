@@ -1,18 +1,3 @@
-using System.Collections.Generic;
-using System.Reflection;
-using FlightAdventures.Application.Abstractions;
-using FlightAdventures.Application.Commands.AddFlight;
-using FlightAdventures.Application.Queries.GetFlight;
-using FlightAdventures.Domain.Models;
-using FlightAdventures.Infrastructure.Identity;
-using FlightAdventures.Persistence;
-using MediatR;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Serilog;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Host.UseSerilog((hostContext, services, configuration) => {
@@ -22,6 +7,8 @@ builder.Host.UseSerilog((hostContext, services, configuration) => {
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+
 builder.Services.AddMediatR(cfg =>
     {
         cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
@@ -30,7 +17,17 @@ builder.Services.AddMediatR(cfg =>
     }
 );
 
-// Context configuration, move to separate file
+// redis context configuration, move to separate file
+var redisConfiguration = builder.Configuration.GetSection("Redis");
+var redisOptions = ConfigurationOptions.Parse(redisConfiguration["Configuration"]!);
+redisOptions.Password = redisConfiguration["Password"];
+
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.ConfigurationOptions = redisOptions;
+});
+
+// db context configuration, move to separate file
 builder.Services.AddDbContext<FlightContext>(options =>
 {
     options.UseSqlServer(builder.Configuration["ConnectionString"],
@@ -52,7 +49,6 @@ if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
 
-    // Initialise and seed database
     using var scope = app.Services.CreateScope();
     var initializer = scope.ServiceProvider.GetRequiredService<FlightDbContextInitializer>();
     await initializer.InitialiseAsync();

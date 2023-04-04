@@ -1,0 +1,16 @@
+﻿global using System.Collections.Generic;
+global using System.Reflection;
+global using FlightAdventures.Application.Abstractions;
+global using FlightAdventures.Application.Commands.AddFlight;
+global using FlightAdventures.Application.Queries.GetFlight;
+global using FlightAdventures.Domain.Models;
+global using FlightAdventures.Infrastructure.Identity;
+global using FlightAdventures.Persistence;
+global using FluentValidation;
+global using MediatR;
+global using Microsoft.AspNetCore.Builder;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Hosting;
+global using Serilog;
+global using StackExchange.Redis;
