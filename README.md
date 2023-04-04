@@ -3,19 +3,20 @@
 `FlightAdventures.API` Web API для получения данных о рейсах
 
 ## Features
-- [v] EF Core
-- [v] Serilog
-- [v] Redis Cache
 - [v] .NET 6
+- [v] EF Core
+- [v] Redis Cache
 - [v] Swagger
 - [v] FluentValidation  
+- [v] DDD
 - [ ] Unit Testing
 - [ ] Integration Testing
-- [v] DDD
+- [ ] Auth
+- [ ] Serilog
 
 ## How to update database localy
 - .Net CLI
-- cd `FlightAdventures.Persistence`
+- cd to `/src/FlightAdventures.Persistence`
 - dotnet ef database update
 
 
