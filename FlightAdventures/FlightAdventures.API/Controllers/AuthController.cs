@@ -1,25 +1,26 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using FlightAdventures.Responses;
+using FlightAdventures.API.Requests;
+using FlightAdventures.API.Responses;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FlightAdventures.API.Controllers;
 
-[Controller]
-[Route("auth")]
-public class AuthController : ControllerBase
+public class AuthController : BaseApiController
 {
-    public AuthController()
+    private readonly SignInManager<ApplicationUser> _signInManager;
+
+    public AuthController(SignInManager<ApplicationUser> signInManager)
     {
-        
+        _signInManager = signInManager;
     }
     
     [HttpPost]
-    public async Task<ActionResult<AuthResponse>> MatchActors(CancellationToken cancellationToken)
+    public async Task<ActionResult<AuthResponse>> SignIn(AuthRequest authRequest, CancellationToken cancellationToken)
     {
-        await Task.Delay(1, cancellationToken);
-        var token = string.Empty;
+        var result = await _signInManager.PasswordSignInAsync(authRequest.User, authRequest.Password, true, lockoutOnFailure: false);
         return new ActionResult<AuthResponse>(
-            new AuthResponse(token));
+            new AuthResponse(result.Succeeded));
     }
 }

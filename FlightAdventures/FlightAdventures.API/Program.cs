@@ -5,7 +5,10 @@ builder.Host.UseSerilog((hostContext, services, configuration) => {
 });
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Flights API", Version = "v1" });
+});
 
 builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
@@ -71,6 +74,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller}/{action=Index}/{id?}");
+    pattern: "{controller}/{action}/{id?}");
 
 app.Run();

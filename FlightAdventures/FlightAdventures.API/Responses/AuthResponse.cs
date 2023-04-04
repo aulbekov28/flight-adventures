@@ -1,3 +1,3 @@
-﻿namespace FlightAdventures.Responses;
+﻿namespace FlightAdventures.API.Responses;
 
-public record AuthResponse(string Token);
+public record AuthResponse(bool Succeeded);
