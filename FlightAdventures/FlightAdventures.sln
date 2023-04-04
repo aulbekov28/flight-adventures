@@ -13,15 +13,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9D4C9E66-E84
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B8E3AF09-00A0-41D3-A8A1-7F6914B2E21B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightAdventures.Application", "FlightAdventures.Application\FlightAdventures.Application.csproj", "{21EFF684-02DD-40A9-89DE-0190E758F20B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightAdventures.Application", "src\FlightAdventures.Application\FlightAdventures.Application.csproj", "{21EFF684-02DD-40A9-89DE-0190E758F20B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightAdventures.Domain", "FlightAdventures.Domain\FlightAdventures.Domain.csproj", "{0908FF80-808D-4B87-B2CF-70C98BBA3B45}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightAdventures.Domain", "src\FlightAdventures.Domain\FlightAdventures.Domain.csproj", "{0908FF80-808D-4B87-B2CF-70C98BBA3B45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightAdventures.Infrastructure", "FlightAdventures.Infrastructure\FlightAdventures.Infrastructure.csproj", "{6E3DB037-EF80-4F00-8F4D-2D6DBD557735}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightAdventures.Infrastructure", "src\FlightAdventures.Infrastructure\FlightAdventures.Infrastructure.csproj", "{6E3DB037-EF80-4F00-8F4D-2D6DBD557735}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightAdventures.Persistence", "FlightAdventures.Persistence\FlightAdventures.Persistence.csproj", "{58CE91E3-A4CA-46E9-AE5D-ABC83F740BA5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightAdventures.Persistence", "src\FlightAdventures.Persistence\FlightAdventures.Persistence.csproj", "{58CE91E3-A4CA-46E9-AE5D-ABC83F740BA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightAdventures.IntegrationTests", "FlightAdventures.IntegrationTests\FlightAdventures.IntegrationTests.csproj", "{A111E77D-149C-4E05-9FE0-43FD16E416C6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightAdventures.IntegrationTests", "tests\FlightAdventures.IntegrationTests\FlightAdventures.IntegrationTests.csproj", "{A111E77D-149C-4E05-9FE0-43FD16E416C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

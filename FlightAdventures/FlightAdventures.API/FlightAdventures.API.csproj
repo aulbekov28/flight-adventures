@@ -26,9 +26,13 @@
     </ItemGroup>
     
     <ItemGroup>
-      <ProjectReference Include="..\FlightAdventures.Application\FlightAdventures.Application.csproj" />
-      <ProjectReference Include="..\FlightAdventures.Infrastructure\FlightAdventures.Infrastructure.csproj" />
-      <ProjectReference Include="..\FlightAdventures.Persistence\FlightAdventures.Persistence.csproj" />
+      <ProjectReference Include="..\src\FlightAdventures.Application\FlightAdventures.Application.csproj" />
+      <ProjectReference Include="..\src\FlightAdventures.Infrastructure\FlightAdventures.Infrastructure.csproj" />
+      <ProjectReference Include="..\src\FlightAdventures.Persistence\FlightAdventures.Persistence.csproj" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <Folder Include="Requests" />
     </ItemGroup>
 
 </Project>

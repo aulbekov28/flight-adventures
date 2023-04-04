@@ -21,7 +21,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\FlightAdventures.API\FlightAdventures.API.csproj" />
+      <ProjectReference Include="..\..\FlightAdventures.API\FlightAdventures.API.csproj" />
     </ItemGroup>
 
 </Project>

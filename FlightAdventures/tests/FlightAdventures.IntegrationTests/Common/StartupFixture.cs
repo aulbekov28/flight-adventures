@@ -3,7 +3,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace FlightAdventures.IntegrationTests.Common;
 
-public class StartupFixture : WebApplicationFactory<Program>
+internal class StartupFixture : WebApplicationFactory<Program>
 {
     protected override IHostBuilder CreateHostBuilder()
     {

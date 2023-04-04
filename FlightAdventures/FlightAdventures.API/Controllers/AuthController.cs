@@ -1,8 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using FlightAdventures.Requests.Auth;
 using FlightAdventures.Responses;
-using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FlightAdventures.API.Controllers;
@@ -17,7 +15,7 @@ public class AuthController : ControllerBase
     }
     
     [HttpPost]
-    public async Task<ActionResult<AuthResponse>> MatchActors(AuthReqeust request, CancellationToken cancellationToken)
+    public async Task<ActionResult<AuthResponse>> MatchActors(CancellationToken cancellationToken)
     {
         await Task.Delay(1, cancellationToken);
         var token = string.Empty;
