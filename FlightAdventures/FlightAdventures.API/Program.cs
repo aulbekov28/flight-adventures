@@ -1,4 +1,6 @@
-using FlightAdventures.Application.Queries;
+using System.Reflection;
+using FlightAdventures.Application.Abstractions;
+using FlightAdventures.Infrastructure.Identity;
 using FlightAdventures.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
@@ -15,14 +17,19 @@ builder.Host.UseSerilog((hostContext, services, configuration) => {
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetFlightsQuery).Assembly));
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
+// Context configuration, move to separate file
+builder.Services.AddDbContext<FlightContext>(options => { options.UseSqlServer(builder.Configuration["ConnectionString"]); });
+builder.Services.AddScoped<IFlightDbContext>(provider => provider.GetRequiredService<FlightContext>());
+builder.Services.AddScoped<FlightDbContextInitializer>();
 builder.Services
-    .AddDbContext<FlightContext>(options =>
-        {
-            options.UseSqlServer(builder.Configuration["ConnectionString"]);
-        }
-    );
+    .AddDefaultIdentity<ApplicationUser>()
+    .AddRoles<ApplicationRole>()
+    .AddEntityFrameworkStores<FlightContext>();
+
+builder.Services.AddIdentityServer()
+    .AddApiAuthorization<ApplicationUser, FlightContext>();
 
 var app = builder.Build();
 
@@ -45,10 +52,19 @@ else
 app.UseSwagger();
 app.UseSwaggerUI();
 
-app.MapGet("/", () => "Hello World!");
+app.UseRouting();
+
+app.UseAuthentication();
+app.UseIdentityServer();
+app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller}/{action=Index}/{id?}");
 
 app.Run();
 
+// TODO needed for web application factory in the integration tests
 #pragma warning disable CA1050 // Declare types in namespaces
 public partial class Program
 {

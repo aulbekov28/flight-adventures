@@ -14,7 +14,7 @@
 
     <ItemGroup>
       <PackageReference Include="MediatR" />
-      <PackageReference Include="MediatR.Extensions.Microsoft.AspNetCore" />
+      <PackageReference Include="Microsoft.AspNetCore.ApiAuthorization.IdentityServer" />
       <PackageReference Include="Microsoft.EntityFrameworkCore" />
       <PackageReference Include="Serilog" />
       <PackageReference Include="Serilog.Extensions.Hosting" />
@@ -27,6 +27,7 @@
     
     <ItemGroup>
       <ProjectReference Include="..\FlightAdventures.Application\FlightAdventures.Application.csproj" />
+      <ProjectReference Include="..\FlightAdventures.Infrastructure\FlightAdventures.Infrastructure.csproj" />
       <ProjectReference Include="..\FlightAdventures.Persistence\FlightAdventures.Persistence.csproj" />
     </ItemGroup>
 

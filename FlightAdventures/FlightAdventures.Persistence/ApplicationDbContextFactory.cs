@@ -5,6 +5,11 @@ namespace FlightAdventures.Persistence;
 
 public class ApplicationDbContextFactory : IDesignTimeDbContextFactory<FlightContext>
 {
+    /// <summary>
+    /// Used for migrations
+    /// </summary>
+    /// <param name="args"></param>
+    /// <returns></returns>
     public FlightContext CreateDbContext(string[] args)
     {
         var optionsBuilder = new DbContextOptionsBuilder<FlightContext>();
