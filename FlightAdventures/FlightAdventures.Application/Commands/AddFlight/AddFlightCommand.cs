@@ -3,9 +3,9 @@ using FlightAdventures.Domain.Enums;
 using FlightAdventures.Domain.Models;
 using MediatR;
 
-namespace FlightAdventures.Application.Commands;
+namespace FlightAdventures.Application.Commands.AddFlight;
 
-public class AddFlightCommand : IRequest<int>
+public class AddFlightCommand : IRequest<Flight>
 {
     public string Origin { get; set; }
     public string Destination { get; set; }
@@ -14,7 +14,7 @@ public class AddFlightCommand : IRequest<int>
     public FlightStatus Status { get; set; }
 }
 
-public class AddFlightHandler : IRequestHandler<AddFlightCommand, int>
+public class AddFlightHandler : IRequestHandler<AddFlightCommand, Flight>
 {
     private readonly IFlightDbContext _context;
 
@@ -23,7 +23,7 @@ public class AddFlightHandler : IRequestHandler<AddFlightCommand, int>
         _context = context;
     }
 
-    public async Task<int> Handle(AddFlightCommand request, CancellationToken cancellationToken)
+    public async Task<Flight> Handle(AddFlightCommand request, CancellationToken cancellationToken)
     {
         var flight = new Flight
         {
@@ -38,6 +38,6 @@ public class AddFlightHandler : IRequestHandler<AddFlightCommand, int>
 
         await _context.SaveChangesAsync(cancellationToken);
 
-        return flight.Id;
+        return flight;
     }
 }

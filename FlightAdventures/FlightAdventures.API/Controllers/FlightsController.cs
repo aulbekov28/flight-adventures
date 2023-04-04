@@ -2,7 +2,10 @@
 using System.Threading.Tasks;
 using FlightAdventures.API.Models.FlightDto;
 using FlightAdventures.Application.Commands;
+using FlightAdventures.Application.Commands.AddFlight;
+using FlightAdventures.Application.Commands.UpdateStatus;
 using FlightAdventures.Application.Queries;
+using FlightAdventures.Application.Queries.GetFlight;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -27,7 +30,7 @@ public class FlightsController : ControllerBase
         return Ok(flight.Select(FlightDto.FromEntity));
     }
     
-    [Authorize]
+    [Authorize(Roles = "Moderator")]
     [HttpPost]
     public async Task<IActionResult> Create(AddFlightCommand command)
     {
@@ -35,7 +38,7 @@ public class FlightsController : ControllerBase
         return Ok(flight);
     }
 
-    [Authorize]
+    [Authorize(Roles = "Moderator")]
     [HttpPut("{id}")]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]

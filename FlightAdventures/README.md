@@ -5,13 +5,13 @@
 ## Features
 - [v] EF Core
 - [v] Serilog
-- [ ] Redis Cache
+- [v] Redis Cache
 - [v] .NET 6
-- [ ] Swagger
-- [ ] FluentValidation  
+- [v] Swagger
+- [v] FluentValidation  
 - [ ] Unit Testing
 - [ ] Integration Testing
-- [ ] DDD
+- [v] DDD
 
 ## How to update database localy
 - .Net CLI
@@ -19,6 +19,5 @@
 - dotnet ef database update
 
 
-### How to install NuGet
-1. Navigate to the `https://www.nuget.org/downloads` and donwload NuGet.exe
-1. Set PATH variable to the NuGet.exe folder location
+### Instructions
+1. Ensure that `docker compose` is installed on machine (https://docs.docker.com/compose/install/)

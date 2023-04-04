@@ -3,7 +3,7 @@ using FlightAdventures.Domain.Enums;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace FlightAdventures.Application.Commands;
+namespace FlightAdventures.Application.Commands.UpdateStatus;
 
 public class UpdateStatusCommand : IRequest
 {

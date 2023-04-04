@@ -3,7 +3,7 @@ using FlightAdventures.Domain.Models;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace FlightAdventures.Application.Queries;
+namespace FlightAdventures.Application.Queries.GetFlight;
 
 public class GetFlightsQuery : IRequest<ICollection<Flight>>
 {

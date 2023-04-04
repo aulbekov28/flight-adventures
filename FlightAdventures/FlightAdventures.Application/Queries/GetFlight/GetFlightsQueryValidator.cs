@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace FlightAdventures.Application.Queries;
+namespace FlightAdventures.Application.Queries.GetFlight;
 
 public class GetFlightsQueryValidator : AbstractValidator<GetFlightsQuery>
 {

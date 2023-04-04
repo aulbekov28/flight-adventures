@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace FlightAdventures.Application.Commands;
+namespace FlightAdventures.Application.Commands.AddFlight;
 
 public class AddFlightCommandValidator : AbstractValidator<AddFlightCommand>
 {

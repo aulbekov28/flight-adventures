@@ -9,6 +9,7 @@
       <PackageReference Include="FluentValidation" />
       <PackageReference Include="MediatR" />
       <PackageReference Include="Microsoft.EntityFrameworkCore" />
+      <PackageReference Include="StackExchange.Redis" />
       <PackageReference Include="Swashbuckle.AspNetCore" />
       <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" />
       <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" />
