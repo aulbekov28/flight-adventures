@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using FlightAdventures.API.Models.FlightDto;
 using FlightAdventures.Application.Commands.UpdateStatus;
+using FlightAdventures.Application.Security;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -24,7 +25,7 @@ public class FlightsController : BaseApiController
         return Ok(flight.Select(FlightDto.FromEntity));
     }
     
-    [Authorize(Roles = "Moderator")]
+    [Authorization(Roles = "Moderator")]
     [HttpPost]
     public async Task<IActionResult> Create(AddFlightCommand command)
     {
@@ -32,7 +33,7 @@ public class FlightsController : BaseApiController
         return Ok(flight);
     }
 
-    [Authorize(Roles = "Moderator")]
+    [Authorization(Roles = "Moderator")]
     [HttpPut("{id}")]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
