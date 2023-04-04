@@ -20,7 +20,11 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
 // Context configuration, move to separate file
-builder.Services.AddDbContext<FlightContext>(options => { options.UseSqlServer(builder.Configuration["ConnectionString"]); });
+builder.Services.AddDbContext<FlightContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration["ConnectionString"],
+        optionActions => optionActions.MigrationsAssembly(typeof(FlightContext).Assembly.FullName));
+});
 builder.Services.AddScoped<IFlightDbContext>(provider => provider.GetRequiredService<FlightContext>());
 builder.Services.AddScoped<FlightDbContextInitializer>();
 builder.Services
